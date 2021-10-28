@@ -1,5 +1,5 @@
 import { Box } from '@chakra-ui/react';
-import Head from 'next/head';
+import { NextSeo } from 'next-seo';
 
 import { About } from '../components/About';
 import { Contact } from '../components/Contact';
@@ -11,22 +11,21 @@ import { Skills } from '../components/Skills';
 export default function App() {
   return (
     <>
-      <Head>
-        <title>Paulo Davi - Portfolio</title>
-      </Head>
+      <NextSeo
+        title="Paulo Davi - Portfolio"
+        description="Portfolio de Paulo Davi Alencar de Freitas Araújo feito em react.js e Next.js"
+      />
+
+      <Header />
+
       <Box as="main">
-        <Header />
-
         <Home />
-
         <About />
-
         <Skills />
-
         <Contact />
-
-        <Footer />
       </Box>
+
+      <Footer />
     </>
   );
 }

@@ -1,9 +1,18 @@
-import Document, { Html, Head, Main, NextScript, DocumentContext } from 'next/document'
+import { ColorModeScript } from '@chakra-ui/react';
+import Document, {
+  Html,
+  Head,
+  Main,
+  NextScript,
+  DocumentContext,
+} from 'next/document';
+
+import { customTheme } from '../theme/customTheme';
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
-    const initialProps = await Document.getInitialProps(ctx)
-    return { ...initialProps }
+    const initialProps = await Document.getInitialProps(ctx);
+    return { ...initialProps };
   }
 
   render() {
@@ -12,16 +21,22 @@ class MyDocument extends Document {
         <Head>
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" />
-          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-          <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet" />
+          <link rel="icon" href="/favicon.svg" type="image/x-icon" />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+            rel="stylesheet"
+          />
         </Head>
         <body>
+          <ColorModeScript
+            initialColorMode={customTheme.config.initialColorMode}
+          />
           <Main />
           <NextScript />
         </body>
       </Html>
-    )
+    );
   }
 }
 
-export default MyDocument
+export default MyDocument;

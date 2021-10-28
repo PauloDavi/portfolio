@@ -1,4 +1,5 @@
-import { Box, Flex, Text } from '@chakra-ui/react';
+import { Box, Flex, Text, Link } from '@chakra-ui/react';
+import AnchorLink from 'react-anchor-link-smooth-scroll';
 
 export function Footer() {
   return (
@@ -6,25 +7,29 @@ export function Footer() {
       <Flex
         mx="auto"
         py="8"
-        fontSize={{base: "md", sm: "xl"}}
+        fontSize={{ base: 'md', sm: 'xl' }}
         px="12"
         maxW="container.xl"
-        justify="space-between"
+        justifyContent="space-between"
         align="center"
       >
         <Text as="span">
           Copyright © {new Date().getFullYear()}{' '}
-          <Text as="span" color="darkcyan" textDecor="underline">
-            Paulo Davi
-          </Text>
+          <AnchorLink href="#home">
+            <Link as="span" color="darkcyan">
+              Paulo Davi
+            </Link>
+          </AnchorLink>
           . Todos os direitos reservados.
         </Text>
 
         <Text as="span">
           Designed by{' '}
-          <Text as="span" color="darkcyan" textDecor="underline">
-            Paulo Davi
-          </Text>
+          <AnchorLink href="#home">
+            <Link as="span" color="darkcyan">
+              Paulo Davi
+            </Link>
+          </AnchorLink>
         </Text>
       </Flex>
     </Box>

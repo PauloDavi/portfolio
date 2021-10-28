@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 
 import {
   HStack,
-  Spacer,
   useBoolean,
   useMediaQuery,
   Box,
@@ -119,13 +118,16 @@ export function Header() {
           </MotionText>
 
           {isLargerThan1000 && (
-            <HStack as="ul" spacing="6" fontSize="xl" listStyleType="none" fontWeight="light">
+            <HStack
+              as="ul"
+              spacing="6"
+              fontSize="xl"
+              listStyleType="none"
+              fontWeight="light"
+            >
               {sections.map((section, index) => (
                 <Box as="li" key={section.title}>
-                  <AnchorLink
-                    href={section.href}
-                    offset={offset}
-                  >
+                  <AnchorLink href={section.href} offset={offset}>
                     <MotionLink
                       as="div"
                       textTransform="uppercase"
@@ -142,13 +144,10 @@ export function Header() {
                         color: 'var(--chakra-colors-gray-400)',
                       }}
                     >
-                      <Box as="li" listStyleType="none">
-                        {section.title}
-                      </Box>
+                      <Box listStyleType="none">{section.title}</Box>
                     </MotionLink>
                   </AnchorLink>
                 </Box>
-
               ))}
             </HStack>
           )}

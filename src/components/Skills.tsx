@@ -10,8 +10,8 @@ import { SiNestjs, SiMongodb, SiTypescript, SiChakraui } from 'react-icons/si';
 import { useInView } from 'react-intersection-observer';
 import { Parallax } from 'react-parallax';
 
-import { MotionBox, MotionSimpleGrid } from './motion-chakra';
-import { TecnoCard } from './Tecnocard';
+import { MotionFlex, MotionSimpleGrid } from './motion-chakra';
+import { TecnoCard } from './TecnoCard';
 
 const data = {
   labels: ['React.js', 'Next.js', 'Node.js', 'Nest.js', 'Git e Github'],
@@ -136,19 +136,34 @@ export function Skills() {
               Skills
             </Text>
             <Flex gridGap="12">
-              <MotionBox
+              <MotionFlex
                 ref={ref}
                 backgroundColor="white"
                 boxShadow="dark-lg"
+                justifyContent="center"
                 initial="hidden"
+                alignItems="center"
+                flexDirection="column"
                 animate={controls}
                 variants={chartVariants}
                 w={['sm', 'md', 'lg']}
                 p="8"
                 borderRadius="2xl"
               >
-                <PolarArea data={data} />
-              </MotionBox>
+                <Text mb="2" fontSize="2xl" color="gray.700">
+                  Principais Habilidades
+                </Text>
+                <PolarArea
+                  data={data}
+                  options={{
+                    plugins: {
+                      legend: {
+                        position: 'bottom',
+                      },
+                    },
+                  }}
+                />
+              </MotionFlex>
 
               {isLargerThan1000 && (
                 <MotionSimpleGrid
@@ -157,7 +172,7 @@ export function Skills() {
                   animate={controls}
                   variants={tecnoContainer}
                   columns={3}
-                  spacing={10}
+                  spacing={14}
                 >
                   {technologies.map(tecno => (
                     <TecnoCard key={tecno.name} tecno={tecno} />

@@ -1,6 +1,6 @@
-import { extendTheme } from '@chakra-ui/react';
+import { extendTheme, Theme } from '@chakra-ui/react';
 
-export const customTheme = extendTheme({
+const theme: Partial<Theme> = {
   styles: {
     global: {
       'html, body': {
@@ -10,4 +10,10 @@ export const customTheme = extendTheme({
       },
     },
   },
-});
+  config: {
+    initialColorMode: 'dark',
+    useSystemColorMode: false,
+  },
+};
+
+export const customTheme = extendTheme(theme);

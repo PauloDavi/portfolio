@@ -8,6 +8,7 @@ import {
 } from '@chakra-ui/react';
 import { AiFillGithub, AiFillLinkedin, AiOutlineMail } from 'react-icons/ai';
 
+import { LinkButton } from './LinkButton';
 import { MotionLink } from './motion-chakra';
 
 const linkIcons = [
@@ -31,7 +32,7 @@ export function Contact() {
   return (
     <Flex
       id="contact"
-      justify="center"
+      justifyContent="center"
       align="center"
       as="section"
       minH="calc(100vh - 5.375rem)"
@@ -43,7 +44,7 @@ export function Contact() {
         gridGap="8"
         h="full"
         align="center"
-        justify="center"
+        justifyContent="center"
         p="8"
       >
         {isLargerThan800 && (
@@ -97,6 +98,16 @@ export function Contact() {
               </MotionLink>
             ))}
           </HStack>
+
+          <LinkButton
+            href="/curiculo.pdf"
+            backgroundColor="darkcyan"
+            isExternal
+            mt="8"
+            mx="auto"
+          >
+            Curriculo
+          </LinkButton>
         </Flex>
       </Flex>
     </Flex>

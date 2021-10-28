@@ -23,7 +23,7 @@ export function Home() {
         mx="auto"
         maxW="container.xl"
         align="center"
-        justify={isLargerThan950 ? 'space-between' : 'center'}
+        justifyContent={!isLargerThan950 ? 'space-between' : 'center'}
         px="8"
       >
         <Flex direction="column" align={isLargerThan950 ? 'start' : 'center'}>
