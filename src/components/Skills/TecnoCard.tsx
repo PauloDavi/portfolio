@@ -2,7 +2,7 @@ import { Image, Icon, useBoolean, Box, Flex, Text } from '@chakra-ui/react';
 import ReactCardFlip from 'react-card-flip';
 import { IconType } from 'react-icons';
 
-import { MotionBox } from './motion-chakra';
+import { MotionBox } from '../motion-chakra';
 
 interface TecnoCardProps {
   tecno:

@@ -4,7 +4,7 @@ import Icon from '@chakra-ui/icon';
 import { IconProps } from '@chakra-ui/react';
 import { IconType } from 'react-icons';
 
-import { MotionLink } from './motion-chakra';
+import { MotionLink } from '../motion-chakra';
 
 interface LinkButtonProps extends ComponentProps<typeof MotionLink> {
   children: ReactNode;
