@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { Text } from '@chakra-ui/react';
 import { AnimationControls } from 'framer-motion';
 import { PolarArea } from 'react-chartjs-2';
+import { useTranslation } from 'react-i18next';
 import { useInView } from 'react-intersection-observer';
 
 import { MotionFlex } from '../motion-chakra';
@@ -13,6 +14,8 @@ interface ChartSkillProps {
 }
 
 export function ChartSkill({ controls }: ChartSkillProps) {
+  const { t } = useTranslation('common');
+
   const { ref, inView } = useInView();
 
   useEffect(() => {
@@ -39,7 +42,7 @@ export function ChartSkill({ controls }: ChartSkillProps) {
       borderRadius="2xl"
     >
       <Text mb="2" fontSize="2xl" color="gray.700">
-        Principais Habilidades
+        {t('SKILL_CHART_TITLE_LABEL')}
       </Text>
       <PolarArea
         data={dataSkills}

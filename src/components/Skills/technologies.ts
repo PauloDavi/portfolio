@@ -39,7 +39,7 @@ export const technologies = [
   },
   {
     icon: AiOutlineGithub,
-    name: 'Git e GitHub',
+    name: 'Git/GitHub',
   },
   {
     icon: FaDocker,

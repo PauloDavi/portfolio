@@ -7,13 +7,15 @@ import {
   Stack,
   Box,
 } from '@chakra-ui/react';
+import { useTranslation } from 'react-i18next';
 import { MdPhoneInTalk } from 'react-icons/md';
-import Typewriter from 'typewriter-effect';
 
-import { LinkButton } from './LinkButton';
+import { LinkButton } from '../LinkButton';
+import { TypingText } from './TypingText';
 
 export function Home() {
   const [isLargerThan950] = useMediaQuery('(min-width: 950px)');
+  const { t } = useTranslation('common');
 
   return (
     <Box id="home" as="section">
@@ -27,32 +29,12 @@ export function Home() {
         px="8"
       >
         <Flex direction="column" align={isLargerThan950 ? 'start' : 'center'}>
-          <Text as="h2" fontSize="7xl" lineHeight="none">
-            Oi eu sou,
-          </Text>
-          <Text as="div" fontSize="7xl" lineHeight="none" fontWeight="bold">
-            <Typewriter
-              options={{
-                loop: true,
-              }}
-              onInit={typewriter => {
-                typewriter
-                  .typeString('Developer')
-                  .pauseFor(2500)
-                  .deleteAll()
-                  .typeString('FullStack')
-                  .pauseFor(2500)
-                  .deleteAll()
-                  .typeString('Paulo Davi')
-                  .pauseFor(2500)
-                  .deleteAll()
-                  .start();
-              }}
-            />
-          </Text>
+          <TypingText />
+
           <Text mt="12" fontSize="sm">
-            em João Pessoa, Paraíba - Brasil
+            João Pessoa, Paraíba - Brasil
           </Text>
+
           <Stack
             direction={{ base: 'column', sm: 'row' }}
             mt="6"
@@ -60,10 +42,11 @@ export function Home() {
             fontSize="large"
           >
             <LinkButton href="#portfolio" backgroundColor="darkcyan">
-              Meus Trabalhos
+              {t('HOME_MY_WORKS_LABEL')}
             </LinkButton>
+
             <LinkButton href="#contact" icon={MdPhoneInTalk}>
-              Contate-me
+              {t('HOME_CONTACT_LABEL')}
             </LinkButton>
           </Stack>
         </Flex>

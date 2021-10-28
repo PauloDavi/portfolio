@@ -1,8 +1,12 @@
 import { Flex, Text, Image, useMediaQuery, Box } from '@chakra-ui/react';
+import { useTranslation } from 'react-i18next';
 
 import { MyDescription } from './MyDescription';
+import { MyInfos } from './MyInfos';
 
 export function About() {
+  const { t } = useTranslation('common');
+
   const [isLargerThan1000] = useMediaQuery('(min-width: 1000px)');
 
   return (
@@ -20,7 +24,7 @@ export function About() {
         p="8"
       >
         <Text as="h2" fontSize="5xl" fontWeight="bold">
-          Me Conheça Mais
+          {t('ABOUT_TITLE_LABEL')}
         </Text>
 
         <Flex
@@ -35,6 +39,8 @@ export function About() {
 
           <MyDescription />
         </Flex>
+
+        <MyInfos />
       </Flex>
     </Box>
   );

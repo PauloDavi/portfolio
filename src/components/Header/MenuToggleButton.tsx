@@ -15,7 +15,21 @@ const Path = (props: SVGMotionProps<SVGPathElement>) => (
 );
 
 export const MenuToggleButton = (props: MenuToggleButtonProps) => (
-  <motion.button {...props}>
+  <motion.button
+    whileHover={{
+      scale: 1.1,
+      color: 'var(--chakra-colors-gray-400)',
+    }}
+    initial={{ x: 200, opacity: 0 }}
+    animate={{ x: 0, opacity: 1 }}
+    transition={{
+      type: 'spring',
+      bounce: 0.35,
+      delay: 0.1,
+      duration: 0.6,
+    }}
+    {...props}
+  >
     <svg width="23" height="23" viewBox="0 0 23 23">
       <Path
         variants={{

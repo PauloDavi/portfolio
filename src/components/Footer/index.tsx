@@ -1,7 +1,10 @@
 import { Box, Flex, Text, Link } from '@chakra-ui/react';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
+import { useTranslation } from 'react-i18next';
 
 export function Footer() {
+  const { t } = useTranslation('common');
+
   return (
     <Box as="footer" backgroundColor="gray.700" boxShadow="dark-lg">
       <Flex
@@ -20,11 +23,11 @@ export function Footer() {
               Paulo Davi
             </Link>
           </AnchorLink>
-          . Todos os direitos reservados.
+          . {t('FOOTER_DIRECTS_LABEL')}
         </Text>
 
         <Text as="span">
-          Designed by{' '}
+          {`${t('FOOTER_DESIGNED_BY_LABEL')} `}
           <AnchorLink href="#home">
             <Link as="span" color="darkcyan">
               Paulo Davi

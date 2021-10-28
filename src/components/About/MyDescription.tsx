@@ -1,6 +1,9 @@
 import { Flex, Text } from '@chakra-ui/layout';
+import { useTranslation } from 'react-i18next';
 
 export function MyDescription() {
+  const { t } = useTranslation('common');
+
   return (
     <Flex
       fontWeight="500"
@@ -11,29 +14,22 @@ export function MyDescription() {
       textAlign="justify"
     >
       <Text as="span">
-        Olá, sou{' '}
+        {`${t('ABOUT_PARAGRAPH_1_LABEL')} `}
         <Text as="span" fontWeight="bold" textDecoration="underline">
           Paulo Davi Alencar de Freias Araújo!
         </Text>
       </Text>
 
       <Text mt="4" as="p">
-        Sou apaixonado por programação desde a adolescência, mas acabei cursado
-        engenharia elétrica na UFPB, onde me envolvi ainda mais com programação
-        em projetos extra curriculares
+        {t('ABOUT_PARAGRAPH_2_LABEL')}
       </Text>
 
       <Text mt="4" as="p">
-        Movido por essa paixão aprendi a stack React.js Node.js e Typescript
-        principalmente com os conteúdos da RocketSeat e acabei conseguindo um
-        trabalho freelancer como fullstack durante a pandemia onde desenvolvi
-        soft e hard skills.
+        {t('ABOUT_PARAGRAPH_3_LABEL')}
       </Text>
 
       <Text mt="4" as="p">
-        Trabalhei principalmente com React,js no desenvolvimento de dashboards e
-        Node.js na criação de api rest com mongoDB e microsserviços para gcloud,
-        ambas as tecnologias utilizadas em conjunto com typescript.
+        {t('ABOUT_PARAGRAPH_4_LABEL')}
       </Text>
     </Flex>
   );

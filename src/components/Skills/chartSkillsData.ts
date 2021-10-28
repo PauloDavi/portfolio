@@ -1,5 +1,5 @@
 export const dataSkills = {
-  labels: ['React.js', 'Next.js', 'Node.js', 'Nest.js', 'Git e Github'],
+  labels: ['React.js', 'Next.js', 'Node.js', 'Nest.js', 'Git/Github'],
   datasets: [
     {
       label: 'Skills',

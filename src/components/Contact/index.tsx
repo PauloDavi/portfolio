@@ -6,12 +6,15 @@ import {
   Link,
   useMediaQuery,
 } from '@chakra-ui/react';
+import { useTranslation } from 'react-i18next';
 
 import { LinkButton } from '../LinkButton';
 import { MotionLink } from '../motion-chakra';
 import { linkIcons } from './linkIcons';
 
 export function Contact() {
+  const { t } = useTranslation('common');
+
   const [isLargerThan800] = useMediaQuery('(min-width: 800px)');
 
   return (
@@ -44,16 +47,15 @@ export function Contact() {
 
         <Flex flexDirection="column">
           <Text fontSize="4xl" fontWeight="bold">
-            Tem uma ideia?
+            {t('CONTACT_HAS_SOME_IDIA_TITLE_LABEL')}
           </Text>
 
           <Text fontSize="xl">
-            Se gostou do meu trabalho e tem ideias para por em pratica. Entre em
-            contato!
+            {t('CONTACT_HAS_SOME_IDIA_PARAGRAPH_LABEL')}
           </Text>
 
           <Text mt="8" fontSize="4xl" fontWeight="bold">
-            E-mail:
+            {t('CONTACT_EMAIL_TITLE_LABEL')}
           </Text>
 
           <Link
@@ -89,13 +91,13 @@ export function Contact() {
           </HStack>
 
           <LinkButton
-            href="/curiculo.pdf"
+            href="/curriculo_pauloDavi.pdf"
             backgroundColor="darkcyan"
             isExternal
             mt="8"
             mx="auto"
           >
-            Curriculo
+            {t('CONTACT_CURRICULUM_LABEL')}
           </LinkButton>
         </Flex>
       </Flex>

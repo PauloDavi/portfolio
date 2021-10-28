@@ -2,12 +2,15 @@ import { useEffect } from 'react';
 
 import { Flex, Text, Link, Icon } from '@chakra-ui/react';
 import { useAnimation } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { useInView } from 'react-intersection-observer';
 
 import { MotionFlex } from '../motion-chakra';
 import { infos, infosContainerVariants, infosVariants } from './infos';
 
 export function MyInfos() {
+  const { t } = useTranslation('common');
+
   const controls = useAnimation();
   const { ref, inView } = useInView();
 
@@ -53,15 +56,19 @@ export function MyInfos() {
         >
           <Flex align="center">
             <Icon as={info.icon} mr="2" />
-            <Text color="gray.600">{info.title}</Text>
+            <Text color="gray.600">
+              {info.translateTitle ? t(info.title) : info.title}
+            </Text>
           </Flex>
 
           {info.href ? (
             <Link href={info.href} fontWeight="bold">
-              {info.info}
+              {info.translateInfo ? t(info.info) : info.info}
             </Link>
           ) : (
-            <Text fontWeight="bold">{info.info}</Text>
+            <Text fontWeight="bold">
+              {info.translateInfo ? t(info.info) : info.info}
+            </Text>
           )}
         </MotionFlex>
       ))}
