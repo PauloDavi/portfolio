@@ -11,6 +11,7 @@ import {
   Text,
   UnorderedList,
 } from '@chakra-ui/react';
+import { useTranslation } from 'next-i18next';
 import { AiFillGithub } from 'react-icons/ai';
 import { BiLinkExternal } from 'react-icons/bi';
 import { Carousel } from 'react-responsive-carousel';
@@ -37,6 +38,8 @@ export function CustomModal({
   demoLink,
   githubLink,
 }: ModalProps) {
+  const { t } = useTranslation();
+
   return (
     <ModalContent>
       <ModalHeader>{title}</ModalHeader>
@@ -55,7 +58,7 @@ export function CustomModal({
         </Text>
 
         <Text fontWeight="bold" fontSize="xl">
-          Tecnologias Utilizadas:
+          {t('CARD_MODAL_TECHNOLOGIES')}:
         </Text>
         <UnorderedList>
           {technologies.map(technology => (

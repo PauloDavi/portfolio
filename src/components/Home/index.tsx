@@ -32,7 +32,7 @@ export function Home() {
           <TypingText />
 
           <Text mt="12" fontSize="sm">
-            João Pessoa, Paraíba - Brasil
+            João Pessoa, Paraíba - {t('BRAZIL_LABEL')}
           </Text>
 
           <Stack

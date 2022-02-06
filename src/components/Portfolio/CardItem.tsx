@@ -1,5 +1,6 @@
 import { Flex, Text, Box, Icon, useBoolean } from '@chakra-ui/react';
 import { Variants } from 'framer-motion';
+import { useTranslation } from 'next-i18next';
 import { IconType } from 'react-icons';
 
 import { useModal } from '../../contexts/ModalContexts';
@@ -64,6 +65,7 @@ export function CardItem({
 }: CardItemProps) {
   const [isHover, setIsHover] = useBoolean(false);
   const { onOpen } = useModal();
+  const { t } = useTranslation();
 
   return (
     <Flex
@@ -106,11 +108,11 @@ export function CardItem({
           direction="column"
         >
           <Text mt="8" fontSize="2xl" fontWeight="bold">
-            {title}
+            {t(title)}
           </Text>
 
           <Text mt="2" fontSize="lg">
-            {text}
+            {t(text)}
           </Text>
         </MotionFlex>
       </Box>
