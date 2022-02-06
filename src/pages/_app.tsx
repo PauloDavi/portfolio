@@ -4,6 +4,8 @@ import { DefaultSeo } from 'next-seo';
 import type { AppProps } from 'next/app';
 import NextNprogress from 'nextjs-progressbar';
 
+import { ButtonScrollTop } from '../components/ButtonScrollTop';
+import { ModalContextProvider } from '../contexts/ModalContexts';
 import { customTheme } from '../theme/customTheme';
 
 import '../styles/globals.css';
@@ -21,21 +23,23 @@ function MyApp({ Component, pageProps }: AppProps) {
         height={3}
         showOnShallow={true}
       />
-
-      <DefaultSeo
-        openGraph={{
-          type: 'website',
-          locale: 'en_IE',
-          url: 'https://www.url.ie/',
-          site_name: 'SiteName',
-        }}
-        twitter={{
-          handle: '@handle',
-          site: '@site',
-          cardType: 'summary_large_image',
-        }}
-      />
-      <Component {...pageProps} />
+      <ModalContextProvider>
+        <DefaultSeo
+          openGraph={{
+            type: 'website',
+            locale: 'en_IE',
+            url: 'https://www.url.ie/',
+            site_name: 'SiteName',
+          }}
+          twitter={{
+            handle: '@handle',
+            site: '@site',
+            cardType: 'summary_large_image',
+          }}
+        />
+        <Component {...pageProps} />
+        <ButtonScrollTop />
+      </ModalContextProvider>
     </ChakraProvider>
   );
 }

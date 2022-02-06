@@ -1,3 +1,4 @@
+import { Variants } from 'framer-motion';
 import { FaBirthdayCake, FaCity } from 'react-icons/fa';
 import { IoMailSharp } from 'react-icons/io5';
 
@@ -26,7 +27,7 @@ export const infos = [
   },
 ];
 
-export const infosVariants = {
+export const infosVariants: Variants = {
   hidden: { scale: 0, opacity: 0 },
   visible: {
     scale: 1,
@@ -37,7 +38,7 @@ export const infosVariants = {
   },
 };
 
-export const infosContainerVariants = {
+export const infosContainerVariants: Variants = {
   visible: {
     transition: {
       delayChildren: 0.1,

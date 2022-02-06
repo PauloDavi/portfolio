@@ -1,42 +1,50 @@
-import { AiFillAccountBook } from 'react-icons/ai';
+import { AiFillFilePdf } from 'react-icons/ai';
+import { BsFillFilePostFill, BsSunFill } from 'react-icons/bs';
+import { Md3DRotation, MdAttachMoney, MdPassword } from 'react-icons/md';
 
 import { CardItemProps } from './CardItem';
 
 export const cards: CardItemProps[] = [
   {
-    title: 'Text',
-    text: 'uma descrição massa demais taligdo, so a satisfação é nois',
+    title: 'COBEP 2021',
+    text: 'Site oficial do Congresso Brasileiro de Eletrônica de Potência',
     color: 'darkcyan',
-    icon: AiFillAccountBook,
+    modalContent: 'cobep',
+    icon: BsSunFill,
   },
   {
-    title: 'Text',
-    text: 'uma descrição massa demais taligdo, so a satisfação é nois',
+    title: 'Gerador de senhas',
+    text: 'Projeto de gerador de senhas aleatórias paramétricas',
     color: 'white',
-    icon: AiFillAccountBook,
+    modalContent: 'password-generator',
+    icon: MdPassword,
   },
   {
-    title: 'Text',
-    text: 'uma descrição massa demais taligdo, so a satisfação é nois',
+    title: 'Blog',
+    text: 'Blog pessoal, feito utilizando NextJS com geração de paginas estáticas',
     color: 'darkcyan',
-    icon: AiFillAccountBook,
+    modalContent: 'blog',
+    icon: BsFillFilePostFill,
   },
   {
-    title: 'Text',
-    text: 'uma descrição massa demais taligdo, so a satisfação é nois',
+    title: 'MyMoney',
+    text: 'Site de fluxo de finanças que guarda as informações no LocalStorage',
     color: 'white',
-    icon: AiFillAccountBook,
+    modalContent: 'money',
+    icon: MdAttachMoney,
   },
   {
-    title: 'Text',
-    text: 'uma descrição massa demais taligdo, so a satisfação é nois',
+    title: 'STL View',
+    text: 'Visualizador 3D de arquivos STL diretamente no browser com informações espaciais da peça',
     color: 'darkcyan',
-    icon: AiFillAccountBook,
+    modalContent: 'stl',
+    icon: Md3DRotation,
   },
   {
-    title: 'Text',
-    text: 'uma descrição massa demais taligdo, so a satisfação é nois',
+    title: 'PDF OS Generator',
+    text: 'Gerador de PDF para ordem de serviço inteiramente no browser',
     color: 'white',
-    icon: AiFillAccountBook,
+    modalContent: 'pdf',
+    icon: AiFillFilePdf,
   },
 ];

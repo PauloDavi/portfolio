@@ -1,4 +1,6 @@
-export const menuVariants = {
+import { Variants } from 'framer-motion';
+
+export const menuVariants: Variants = {
   open: {
     height: '18rem',
     transition: {

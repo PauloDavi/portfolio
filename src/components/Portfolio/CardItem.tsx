@@ -1,24 +1,37 @@
 import { Flex, Text, Box, Icon, useBoolean } from '@chakra-ui/react';
+import { Variants } from 'framer-motion';
 import { IconType } from 'react-icons';
 
+import { useModal } from '../../contexts/ModalContexts';
 import { MotionFlex } from '../motion-chakra';
 
-const iconVariants = {
+const iconVariants: Variants = {
   isHover: {
     top: '5rem',
     width: '8rem',
     borderRadius: '4rem',
     height: '8rem',
+    transition: {
+      ease: 'easeOut',
+      type: 'tween',
+      duration: 0.2,
+      delay: 0.1,
+    },
   },
   notIsHover: {
     top: '0',
     borderRadius: '0.75rem',
     width: '100%',
     height: '100%',
+    transition: {
+      ease: 'easeIn',
+      type: 'tween',
+      duration: 0.2,
+    },
   },
 };
 
-const contentVariants = {
+const contentVariants: Variants = {
   isHover: {
     opacity: 1,
     y: 0,
@@ -26,6 +39,11 @@ const contentVariants = {
   notIsHover: {
     opacity: 0,
     y: 50,
+    transition: {
+      type: 'spring',
+      bounce: 0.25,
+      duration: 0.4,
+    },
   },
 };
 
@@ -33,11 +51,19 @@ export interface CardItemProps {
   title: string;
   text: string;
   color: 'white' | 'darkcyan';
+  modalContent: string;
   icon: IconType;
 }
 
-export function CardItem({ title, text, color, icon }: CardItemProps) {
+export function CardItem({
+  title,
+  text,
+  color,
+  modalContent,
+  icon,
+}: CardItemProps) {
   const [isHover, setIsHover] = useBoolean(false);
+  const { onOpen } = useModal();
 
   return (
     <Flex
@@ -52,6 +78,8 @@ export function CardItem({ title, text, color, icon }: CardItemProps) {
       align="center"
       textAlign="center"
       p="8"
+      as="button"
+      onClick={() => onOpen(modalContent)}
       borderRadius="xl"
     >
       <MotionFlex

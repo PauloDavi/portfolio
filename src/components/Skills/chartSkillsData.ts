@@ -1,3 +1,5 @@
+import { Variants } from 'framer-motion';
+
 export const dataSkills = {
   labels: ['React.js', 'Next.js', 'Node.js', 'Nest.js', 'Git/Github'],
   datasets: [
@@ -16,7 +18,7 @@ export const dataSkills = {
   ],
 };
 
-export const chartVariants = {
+export const chartVariants: Variants = {
   hidden: { scale: 0, opacity: 0 },
   visible: {
     scale: 1,

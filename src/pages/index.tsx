@@ -9,7 +9,8 @@ import { Contact } from '../components/Contact';
 import { Footer } from '../components/Footer';
 import { Header } from '../components/Header';
 import { Home } from '../components/Home';
-// import { Portfolio } from '../components/Portfolio';
+import { PortfolioModal } from '../components/Modal';
+import { Portfolio } from '../components/Portfolio';
 import { Skills } from '../components/Skills';
 
 export default function App() {
@@ -28,10 +29,13 @@ export default function App() {
         <Home />
         <About />
         <Skills />
+        <Portfolio />
         <Contact />
       </Box>
 
       <Footer />
+
+      <PortfolioModal />
     </>
   );
 }
