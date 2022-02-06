@@ -51,6 +51,7 @@
   "CARD_MODAL_TITLE_5": "Generador de PDF OS",
   "CARD_MODAL_DESCRIPTION_5": "Generador de PDF para orden de trabajo completamente en el navegador, que le permite completar varios campos, solución hecha para generar facturas del FABLAB institucional (laboratorio de fabricación digital) de la UFPB.",
   "CARD_MODAL_TITLE_6": "Generador de contraseñas",
+  "YEARS_LABEL": "años",
   "CARD_MODAL_DESCRIPTION_6": "Proyecto de un generador de contraseñas aleatorias basado en parámetros personalizables, la página tiene un tema claro y oscuro y destaca los diferentes tipos de caracteres.",
   "CARD_MODAL_TECHNOLOGIES": "Tecnologías Usadas"
 }

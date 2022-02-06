@@ -51,6 +51,7 @@
   "CARD_MODAL_TITLE_5": "PDF OS Generator",
   "CARD_MODAL_DESCRIPTION_5": "Gerador de PDF para ordem de serviço inteiramente no browser, permitindo preencher diversos campos, solução feita para geração de boletos do FABLAB (laboratório de fabricação digital) institucional da UFPB.",
   "CARD_MODAL_TITLE_6": "Gerador de senha",
+  "YEARS_LABEL": "anos",
   "CARD_MODAL_DESCRIPTION_6": "Projeto de um gerador de senhas aleatórias com base em parâmetros customizáveis, a página tem tema claro e escuro e destaca os diferentes tipos de caracteres.",
   "CARD_MODAL_TECHNOLOGIES": "Tecnologias Utilizadas"
 }

@@ -6,7 +6,7 @@ import { CustomModal } from './CustomModal';
 
 export function PortfolioModal() {
   const { isOpen, onClose, content } = useModal();
-  const { t } = useTranslation();
+  const { t } = useTranslation('common');
 
   function selectContent() {
     switch (content) {

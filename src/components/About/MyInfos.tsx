@@ -1,18 +1,49 @@
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 
 import { Flex, Text, Link, Icon } from '@chakra-ui/react';
 import { useAnimation } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
+import { FaBirthdayCake, FaCity } from 'react-icons/fa';
+import { IoMailSharp } from 'react-icons/io5';
 import { useInView } from 'react-intersection-observer';
 
+import { calcAge } from '../../utils/calcAge';
 import { MotionFlex } from '../motion-chakra';
-import { infos, infosContainerVariants, infosVariants } from './infos';
+import { infosContainerVariants, infosVariants } from './infos';
 
 export function MyInfos() {
   const { t } = useTranslation('common');
 
   const controls = useAnimation();
   const { ref, inView } = useInView();
+
+  const infos = useMemo(
+    () => [
+      {
+        title: 'E-mail:',
+        translateTitle: false,
+        info: 'araujo.paulo.davi@gmail.com',
+        translateInfo: false,
+        href: 'mailto:araujo.paulo.davi@gmail.com',
+        icon: IoMailSharp,
+      },
+      {
+        title: 'ABOUT_BIRTH_TITLE_LABEL',
+        translateTitle: true,
+        info: 'ABOUT_BIRTH_DATA_LABEL',
+        translateInfo: true,
+        icon: FaBirthdayCake,
+      },
+      {
+        title: 'ABOUT_FROM_TITLE_LABEL',
+        translateTitle: true,
+        info: 'João Pessoa, PB',
+        translateInfo: false,
+        icon: FaCity,
+      },
+    ],
+    [],
+  );
 
   useEffect(() => {
     if (inView) {
@@ -67,7 +98,13 @@ export function MyInfos() {
             </Link>
           ) : (
             <Text fontWeight="bold">
-              {info.translateInfo ? t(info.info) : info.info}
+              {info.translateInfo
+                ? info.info === 'ABOUT_BIRTH_DATA_LABEL'
+                  ? `${t(info.info)} (${calcAge(new Date('1998-08-14'))} ${t(
+                      'YEARS_LABEL',
+                    )})`
+                  : t(info.info)
+                : info.info}
             </Text>
           )}
         </MotionFlex>

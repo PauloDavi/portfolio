@@ -51,6 +51,7 @@
   "CARD_MODAL_TITLE_5": "PDF OS Generator",
   "CARD_MODAL_DESCRIPTION_5": "PDF generator for work order entirely in the browser, allowing you to fill in several fields, solution made for generating invoices from the institutional FABLAB (digital fabrication laboratory) of UFPB.",
   "CARD_MODAL_TITLE_6": "Password Generator",
+  "YEARS_LABEL": "years",
   "CARD_MODAL_DESCRIPTION_6": "Project of a random password generator based on customizable parameters, the page has a light and dark theme and highlights the different types of characters.",
   "CARD_MODAL_TECHNOLOGIES": "Used Technologies"
 }

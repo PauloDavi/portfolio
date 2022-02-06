@@ -38,7 +38,7 @@ export function CustomModal({
   demoLink,
   githubLink,
 }: ModalProps) {
-  const { t } = useTranslation();
+  const { t } = useTranslation('common');
 
   return (
     <ModalContent>

@@ -16,7 +16,7 @@ export function MyDescription() {
       <Text as="span">
         {`${t('ABOUT_PARAGRAPH_1_LABEL')} `}
         <Text as="span" fontWeight="bold" textDecoration="underline">
-          Paulo Davi Alencar de Freias Araújo!
+          Paulo Davi Alencar de Freitas Araújo!
         </Text>
       </Text>
 

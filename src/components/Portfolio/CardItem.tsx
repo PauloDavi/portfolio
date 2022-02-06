@@ -65,7 +65,7 @@ export function CardItem({
 }: CardItemProps) {
   const [isHover, setIsHover] = useBoolean(false);
   const { onOpen } = useModal();
-  const { t } = useTranslation();
+  const { t } = useTranslation('common');
 
   return (
     <Flex
