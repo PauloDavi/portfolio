@@ -13,6 +13,7 @@ export function TitlePortfolio() {
       px="6"
       py="2"
       boxShadow="lg"
+      textAlign="center"
       display="flex"
       justifyContent="center"
       alignItems="center"

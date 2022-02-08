@@ -1,4 +1,12 @@
-import { Image, Icon, useBoolean, Box, Flex, Text } from '@chakra-ui/react';
+import {
+  Image,
+  Icon,
+  useBoolean,
+  Box,
+  Flex,
+  Text,
+  useMediaQuery,
+} from '@chakra-ui/react';
 import ReactCardFlip from 'react-card-flip';
 import { IconType } from 'react-icons';
 
@@ -31,6 +39,7 @@ const tecnoVariants = {
 
 export function TecnoCard({ tecno }: TecnoCardProps) {
   const [isHover, setIsHover] = useBoolean();
+  const [isLargerThan600] = useMediaQuery('(min-width: 600px)');
 
   return (
     <Box onMouseEnter={setIsHover.on} onMouseLeave={setIsHover.off}>
@@ -44,15 +53,21 @@ export function TecnoCard({ tecno }: TecnoCardProps) {
             bg="white"
             borderRadius="2xl"
             w="9rem"
-            h="9rem"
+            h={isLargerThan600 ? '9rem' : '12rem'}
             boxShadow="dark-lg"
             p="8"
           >
-            <Flex align="center" justify="center" h="full">
+            <Flex direction="column" align="center" justify="center" h="full">
               {tecno.image ? (
                 <Image src={tecno.image} alt={tecno.name} width="full" />
               ) : (
                 <Icon as={tecno.icon} w="5rem" h="auto" />
+              )}
+
+              {!isLargerThan600 && (
+                <Text mt="4" textAlign="center" fontSize="xl" fontWeight="bold">
+                  {tecno.name}
+                </Text>
               )}
             </Flex>
           </Box>

@@ -25,10 +25,13 @@ export function Home() {
         mx="auto"
         maxW="container.xl"
         align="center"
-        justifyContent={!isLargerThan950 ? 'space-between' : 'center'}
         px="8"
       >
-        <Flex direction="column" align={isLargerThan950 ? 'start' : 'center'}>
+        <Flex
+          direction="column"
+          mx={isLargerThan950 ? 'none' : 'auto'}
+          align={isLargerThan950 ? 'start' : 'center'}
+        >
           <TypingText />
 
           <Text mt="12" fontSize="sm">

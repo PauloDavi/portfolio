@@ -29,7 +29,11 @@ export function Skills() {
           >
             <TitleSkill />
 
-            <Flex gridGap="12">
+            <Flex
+              direction={['column', 'column', 'column', 'row']}
+              alignItems="center"
+              gridGap="12"
+            >
               <ChartSkill controls={controls} />
 
               <TechnologiesList controls={controls} />

@@ -73,6 +73,9 @@ export function Contact() {
                 whileHover={{
                   scale: 1.1,
                   color: 'var(--chakra-colors-gray-400)',
+                  transition: {
+                    duration: 0.1,
+                  },
                 }}
                 initial={{ x: 200, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}

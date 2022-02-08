@@ -4,7 +4,7 @@ import { Md3DRotation, MdAttachMoney, MdPassword } from 'react-icons/md';
 
 import { CardItemProps } from './CardItem';
 
-export const cards: CardItemProps[] = [
+export const cards: Omit<CardItemProps, 'isOpen' | 'index'>[] = [
   {
     title: 'CARD_TITLE_1',
     text: 'CARD_TEXT_1',

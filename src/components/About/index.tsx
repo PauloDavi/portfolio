@@ -23,7 +23,7 @@ export function About() {
         direction="column"
         p="8"
       >
-        <Text as="h2" fontSize="5xl" fontWeight="bold">
+        <Text as="h2" fontSize="5xl" textAlign="center" fontWeight="bold">
           {t('ABOUT_TITLE_LABEL')}
         </Text>
 
@@ -37,7 +37,9 @@ export function About() {
             <Image src="/images/freelancer.svg" w="25rem" alt="Programador" />
           )}
 
-          <MyDescription />
+          <Box mx={[isLargerThan1000 ? 'none' : 'auto']}>
+            <MyDescription />
+          </Box>
         </Flex>
 
         <MyInfos />

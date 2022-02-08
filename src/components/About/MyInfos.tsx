@@ -46,10 +46,12 @@ export function MyInfos() {
   );
 
   useEffect(() => {
+    controls.start('hidden');
+  }, [controls]);
+
+  useEffect(() => {
     if (inView) {
       controls.start('visible');
-    } else {
-      controls.start('hidden');
     }
   }, [controls, inView]);
 

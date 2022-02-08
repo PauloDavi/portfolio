@@ -1,10 +1,13 @@
+import { useEffect, useMemo } from 'react';
+
 import { Flex, Text, Box, Icon, useBoolean } from '@chakra-ui/react';
-import { Variants } from 'framer-motion';
+import { useAnimation, Variants } from 'framer-motion';
 import { useTranslation } from 'next-i18next';
 import { IconType } from 'react-icons';
+import { useInView } from 'react-intersection-observer';
 
 import { useModal } from '../../contexts/ModalContexts';
-import { MotionFlex } from '../motion-chakra';
+import { MotionBox, MotionFlex } from '../motion-chakra';
 
 const iconVariants: Variants = {
   isHover: {
@@ -53,6 +56,8 @@ export interface CardItemProps {
   text: string;
   color: 'white' | 'darkcyan';
   modalContent: string;
+  isOpen: boolean;
+  index: number;
   icon: IconType;
 }
 
@@ -61,61 +66,93 @@ export function CardItem({
   text,
   color,
   modalContent,
+  isOpen,
+  index,
   icon,
 }: CardItemProps) {
-  const [isHover, setIsHover] = useBoolean(false);
+  const [isHover, setIsHover] = useBoolean(isOpen);
   const { onOpen } = useModal();
   const { t } = useTranslation('common');
 
-  return (
-    <Flex
-      shadow="2xl"
-      direction="column"
-      backgroundColor={color === 'darkcyan' ? 'white' : 'cyan.900'}
-      color={color === 'darkcyan' ? 'gray.800' : 'white'}
-      maxW="sm"
-      onMouseEnter={setIsHover.on}
-      onMouseLeave={setIsHover.off}
-      position="relative"
-      align="center"
-      textAlign="center"
-      p="8"
-      as="button"
-      onClick={() => onOpen(modalContent)}
-      borderRadius="xl"
-    >
-      <MotionFlex
-        borderRadius="xl"
-        position="absolute"
-        bg={color}
-        boxShadow="2xl"
-        justify="center"
-        align="center"
-        animate={isHover ? 'isHover' : 'notIsHover'}
-        variants={iconVariants}
-        color={color === 'darkcyan' ? 'white' : 'cyan.900'}
-      >
-        <Icon as={icon} w="5rem" h="auto" />
-      </MotionFlex>
+  const controls = useAnimation();
+  const { ref, inView } = useInView();
 
-      <Box w="full" h="full" mt="12rem">
+  const cardsVariants = useMemo<Variants>(
+    () => ({
+      hidden: { x: 20, opacity: 0 },
+      visible: {
+        x: 0,
+        opacity: 1,
+        transition: {
+          duration: 0.5,
+          delay: 0.1 + 0.3 * index,
+        },
+      },
+    }),
+    [index],
+  );
+
+  useEffect(() => {
+    controls.start('hidden');
+  }, [controls]);
+
+  useEffect(() => {
+    if (inView) {
+      controls.start('visible');
+    }
+  }, [controls, inView]);
+
+  return (
+    <MotionBox animate={controls} ref={ref} variants={cardsVariants}>
+      <Flex
+        shadow="2xl"
+        direction="column"
+        backgroundColor={color === 'darkcyan' ? 'white' : 'cyan.900'}
+        color={color === 'darkcyan' ? 'gray.800' : 'white'}
+        maxW="sm"
+        onMouseEnter={() => !isOpen && setIsHover.on()}
+        onMouseLeave={() => !isOpen && setIsHover.off()}
+        position="relative"
+        align="center"
+        textAlign="center"
+        p="8"
+        as="button"
+        onClick={() => onOpen(modalContent)}
+        borderRadius="xl"
+      >
         <MotionFlex
           borderRadius="xl"
+          position="absolute"
+          bg={color}
+          boxShadow="2xl"
           justify="center"
-          animate={isHover ? 'isHover' : 'notIsHover'}
-          variants={contentVariants}
           align="center"
-          direction="column"
+          animate={isHover ? 'isHover' : 'notIsHover'}
+          variants={iconVariants}
+          color={color === 'darkcyan' ? 'white' : 'cyan.900'}
         >
-          <Text mt="8" fontSize="2xl" fontWeight="bold">
-            {t(title)}
-          </Text>
-
-          <Text mt="2" fontSize="lg">
-            {t(text)}
-          </Text>
+          <Icon as={icon} w="5rem" h="auto" />
         </MotionFlex>
-      </Box>
-    </Flex>
+
+        <Box w="full" h="full" mt="12rem">
+          <MotionFlex
+            borderRadius="xl"
+            justify="center"
+            animate={isHover ? 'isHover' : 'notIsHover'}
+            variants={contentVariants}
+            align="center"
+            direction="column"
+          >
+            <Text mt="8" fontSize="2xl" fontWeight="bold">
+              {t(title)}
+            </Text>
+
+            <Text mt="2" fontSize="lg">
+              {t(text)}
+            </Text>
+          </MotionFlex>
+        </Box>
+      </Flex>
+    </MotionBox>
   );
 }

@@ -9,11 +9,12 @@ export function Footer() {
     <Box as="footer" backgroundColor="gray.700" boxShadow="dark-lg">
       <Flex
         mx="auto"
-        py="8"
+        py={['4', '8']}
         fontSize={{ base: 'md', sm: 'xl' }}
-        px="12"
+        px={['8', '12']}
         maxW="container.xl"
         justifyContent="space-between"
+        direction={['column-reverse', 'row']}
         align="center"
       >
         <Text as="span">

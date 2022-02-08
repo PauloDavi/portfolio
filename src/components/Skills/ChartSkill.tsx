@@ -19,10 +19,12 @@ export function ChartSkill({ controls }: ChartSkillProps) {
   const { ref, inView } = useInView();
 
   useEffect(() => {
+    controls.start('hidden');
+  }, [controls]);
+
+  useEffect(() => {
     if (inView) {
       controls.start('visible');
-    } else {
-      controls.start('hidden');
     }
   }, [controls, inView]);
 

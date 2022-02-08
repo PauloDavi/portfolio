@@ -63,13 +63,12 @@ export function LanguageToggleButton() {
                 <Image
                   w="1.5rem"
                   h="1.5rem"
-                  mr="4"
                   borderRadius="full"
                   src={languages[locale as keyof typeof languages].flag}
                   alt={languages[locale as keyof typeof languages].title}
                 />
 
-                <Text>
+                <Text ml="4" display={['none', 'block']}>
                   {t(languages[locale as keyof typeof languages].title)}
                 </Text>
               </Flex>
