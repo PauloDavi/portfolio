@@ -47,25 +47,38 @@ export function TecnoCard({ tecno }: TecnoCardProps) {
         <ReactCardFlip
           isFlipped={isHover}
           flipDirection="horizontal"
-          containerStyle={{ height: 'full' }}
+          containerStyle={{ height: 'full', width: 'full' }}
         >
           <Box
             bg="white"
             borderRadius="2xl"
-            w="9rem"
+            w={isLargerThan600 ? '9rem' : '12rem'}
             h={isLargerThan600 ? '9rem' : '12rem'}
             boxShadow="dark-lg"
             p="8"
           >
-            <Flex direction="column" align="center" justify="center" h="full">
+            <Flex
+              direction="column"
+              align="center"
+              justify="center"
+              h="full"
+              w="full"
+            >
               {tecno.image ? (
-                <Image src={tecno.image} alt={tecno.name} width="full" />
+                <Image src={tecno.image} alt={tecno.name} w="full" />
               ) : (
                 <Icon as={tecno.icon} w="5rem" h="auto" />
               )}
 
               {!isLargerThan600 && (
-                <Text mt="4" textAlign="center" fontSize="xl" fontWeight="bold">
+                <Text
+                  mt="4"
+                  textAlign="center"
+                  fontSize="xl"
+                  w="full"
+                  h="full"
+                  fontWeight="bold"
+                >
                   {tecno.name}
                 </Text>
               )}
